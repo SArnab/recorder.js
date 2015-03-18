@@ -152,7 +152,7 @@ package
 				}
 			}
 			
-			ml.addFile(wav, 'audio.wav', audioParam);
+			ml.addFile(wav, 'audio.wav', audioParam, 'audio/wav');
 			ml.load(uri, false);
 			
 		}
