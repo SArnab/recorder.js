@@ -133,6 +133,7 @@ package
 		{
 			logger.log("upload");
 			buffer.position = 0;
+			var filename:String = 'audio.wav';
 			var wav:ByteArray = prepareWav();					
 			var ml:MultipartURLLoader = new MultipartURLLoader();
 			ml.addEventListener(Event.COMPLETE, onReady);
@@ -149,10 +150,13 @@ package
 			}else{
 				for(var k in parameters){
 					ml.addVariable(k, parameters[k]);
+					if(k == "filename"){
+						filename = parameters[k];
+					}
 				}
 			}
 			
-			ml.addFile(wav, 'audio.wav', audioParam, 'audio/wav');
+			ml.addFile(wav, filename, audioParam, 'audio/wav');
 			ml.load(uri, false);
 			
 		}
